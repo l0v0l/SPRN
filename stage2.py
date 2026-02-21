@@ -54,7 +54,11 @@ def train(args):
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=1, shuffle=False)
     
     model=models.unet_bn().to(args.device)
-    model_save_name='val_best_model_ffrn.pth'
+    model_save_name='tuned_model.pth'
+
+    model_load_name='base_model.pth'
+    model.load_state_dict(torch.load(model_load_name, weights_only=True))
+
     
     summary(model,(2,256,320))
 

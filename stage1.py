@@ -50,7 +50,7 @@ def train(args):
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=1, shuffle=False)
     
     model=models.unet_bn().to(args.device)
-    model_save_name='val_RNGuided_ffrn_stree_test.pth'
+    model_save_name='base_model.pth'
     
     summary(model,(2,256,320))
 
