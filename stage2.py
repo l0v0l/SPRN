@@ -192,20 +192,18 @@ def train(args):
     print(f'Testing DSC--->{test_loss:.6f}')
 
 if __name__=='__main__':
-    parser = argparse.ArgumentParser(description='multi-resnet training')
+    parser = argparse.ArgumentParser(description='Stage 2 training')
     parser.add_argument('--lr', help='learning rate', default=1e-3)
     parser.add_argument('--in_folder', help='dataset folder', default='POM_train_SPIE_sp')
-    parser.add_argument('--is_cca', help='Is cca?', default=True)
     parser.add_argument('--batch_size', help='batch size', default=2)
     parser.add_argument('--epoch', help='epochs', default=5)
     parser.add_argument('--device', help='device', default=torch.device('cuda:0'))
     parser.add_argument('--seed', help='Random seed', default=random.randint(1,10000))
     parser.add_argument('--train_loss_every_iters', help='Logging loss every x iters', default=1000)
     parser.add_argument('--val_loss_every_iters', help='Validation every x iters', default=1000)
-    parser.add_argument('--model_mode', help='True for ffrn and False for unet', default='ffrn')
     parser.add_argument('--test_out', help='Test output folder', default='output')
-    parser.add_argument('--iter_save', help='Save weights in iter', default=False)
-    parser.add_argument('--epoch_save', help='Save weights at epoch', default=True)
+    parser.add_argument('--iter_save', help='Save weights in iter', default=True)
+    parser.add_argument('--epoch_save', help='Save weights at epoch', default=False)
     args=parser.parse_args()
 
     train(args)

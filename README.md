@@ -9,16 +9,24 @@ The input of the model is a 3-channel image:
 3. Empty channel.
 
 **Structure of the dataset**：
+
+```bash
 Root_folder
-|_train_slices (Input for training)
-|_train_sp_masks (MSM for training)
-|_train_plaque_masks (plaque masks for training)
-|_val_slices (Input for validation)
-|_val_sp_masks (MSM for validation)
-|_val_plaque_masks (plaque masks for validation)
-|_test_slices (Input for testing)
-|_test_sp_masks (MSM for testing)
-|_test_plaque_masks (plaque masks for testing)
+├──train_slices
+├──train_sp_masks
+├──train_plaque_masks
+├──val_slices
+├──val_sp_masks
+├──val_plaque_masks
+├──test_slices
+├──test_sp_masks
+└──test_plaque_masks
+```
+
+Explanation:
+* train/val/test_slices: inputs for training/validation/testing.
+* train/val/test_sp_masks: MSMs for training/validation/testing.
+* train/val/test_plaque_masks: plaque masks for training/validation/testing.
 
 
 ## Training
