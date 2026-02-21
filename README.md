@@ -31,3 +31,6 @@ Explanation:
 
 ## Training
 There are two training stage. Please run stage1.py first to generate the base model. Next, you can run stage2.py to get the final model for testing. 
+
+## Testing
+After stage 2 training, the output images are stored in the folder for evaluation. 
