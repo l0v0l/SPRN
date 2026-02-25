@@ -93,24 +93,15 @@ def gen_reference(pred, sp):
     overlap=pred_tmp*sp_tmp
     sp_list=torch.flatten(overlap.cpu()).tolist()
     sp_set=list(set(sp_list))
-    sp_list_all=torch.flatten(overlap.cpu()).tolist()
-    sp_set_all=list(set(sp_list_all))
-    canvas=torch.zeros_like(sp_tmp)
-    for sp_val in sp_set:
-        sp_val_int=int(sp_val)
-        if not sp_val_int==0:
-            canvas[sp_tmp==sp_val]=1
+
     pred_num=len(sp_set)
     pred_num=np.array(pred_num).astype(np.float32)
     pred_num=torch.from_numpy(np.expand_dims(pred_num, axis=0))
-    true_num=len(sp_set_all)
-    true_num=np.array(true_num).astype(np.float32)
-    true_num=torch.from_numpy(np.expand_dims(true_num, axis=0))
-    return canvas.float().to('cuda'), pred_num.to('cuda'), true_num.to('cuda')
+    return pred_num.to('cuda')
 
 def milestone_loss_fn(pred, sp):
     if torch.sum(pred)>0:
-        _, pred_num, true_num=gen_reference(pred, sp)
-        return 1-pred_num/true_num
+        pred_num=gen_reference(pred, sp)
+        return 1-1/pred_num
     else:
         return 1

@@ -164,8 +164,6 @@ def train(args):
     if not os.path.exists(out_folder):
         os.mkdir(out_folder)
     img_num=0
-    #test_criterion=utils.dice_coef_final_pt
-    test_loss=0
     for test_batch_idx, (test_image, test_mask, test_sp) in enumerate(test_loader):
         test_image=test_image.to(args.device)
         test_mask=test_mask.to(args.device)
@@ -187,9 +185,6 @@ def train(args):
             imageio.imwrite(os.path.join(out_folder, str(img_num).zfill(5)+'_pred.png'), (out_pred_slice*255).astype(np.uint8))
             imageio.imwrite(os.path.join(out_folder, str(img_num).zfill(5)+'_true.png'), (out_true_slice*255).astype(np.uint8))
             img_num+=1
-
-
-    print(f'Testing DSC--->{test_loss:.6f}')
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Stage 2 training')

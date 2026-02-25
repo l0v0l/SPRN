@@ -32,5 +32,11 @@ Explanation:
 ## Training
 There are two training stage. Please run stage1.py first to generate the base model. Next, you can run stage2.py to get the final model for testing. 
 
-## Testing
-After stage 2 training, the output images are stored in the folder for evaluation. 
+## Inference
+After stage 2 training, the output images are stored in the folder for evaluation. The default folder name is 'output'
+
+Or you can use the standalone test.py to generate segmentation
+
+## Evaluation
+
+Please run evaluation.py to get the experimental results. Three metrics are included: DSC, average TPV difference and 95 percentile of Hausdorff distance. 
