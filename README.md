@@ -40,3 +40,6 @@ Or you can use the standalone test.py to generate segmentation
 ## Evaluation
 
 Please run evaluation.py to get the experimental results. Three metrics are included: DSC, average TPV difference and 95 percentile of Hausdorff distance. 
+
+**Credit for HD95 evaluation**
+[https://github.com/OldaKodym/evaluation_metrics.git](https://github.com/OldaKodym/evaluation_metrics.git)
